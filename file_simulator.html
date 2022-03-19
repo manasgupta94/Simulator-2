@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+<style>
+
+.column {
+float:left;
+  width:50%;
+display:inline-block;
+}
+
+
+button
+{
+text-align:center;
+padding:11px 18px;
+margin:1px 3px;
+font-size:105%;
+display:inline-block;
+border:3px solid black;
+font-weight:bold;
+background-color:red;
+
+}
+
+li
+{
+overflow:none;
+margin:0px;
+padding:0;
+font-size:13px;
+}
+
+
+@media only screen and (max-width:600px)
+{
+li
+{
+margin:6px;
+font-size:12px;
+}
+}
+
+
+body
+{
+ background-color:DodgerBlue;
+}
+</style>
+
+
+
+
+<script>
+function myFunction() {var c=0;
+
+var l=0;
+var f=0;
+var f1=0;
+var f2=0;
+var f3=0;
+var i;
+var str11=document.getElementById("my1").value;
+var str12=document.getElementById("my2").value;
+var str13=document.getElementById("my3").value;
+var str14=document.getElementById("my4").value;
+
+
+
+var str21=document.getElementById("m1").value;
+var str22=document.getElementById("m2").value;
+var str23=document.getElementById("m3").value;
+var str24=document.getElementById("m4").value;
+
+
+document.getElementById("d1").innerHTML ="First File Content ----";
+document.getElementById("d2").innerHTML =str11+"<br>"+str12+"<br>"+str13+"<br>"+str14;
+document.getElementById("d3").innerHTML ="Second File Content ---- ";
+document.getElementById("d4").innerHTML =str21+"<br>"+str22+"<br>"+str23+"<br>"+str24;
+document.getElementById("d5").innerHTML ="OUTPUT ---- ";
+
+for(i=0;((i<str11.length)||(i<str21.length));i++)
+{
+c++;
+if (str11.charAt(i)!=str21.charAt(i))
+{
+document.getElementById("d6").innerHTML ="Files are not equal at line 1 and At Column "+c; 
+f=1;
+
+break;
+}
+}
+
+
+if (f==0 && f1==0 && f2==0 && f3==0)
+{
+c=0;
+for(i=0;((i<str12.length)||(i<str22.length));i++)
+{
+c++;
+if (str12.charAt(i)!=str22.charAt(i))
+{
+
+f1=1;
+document.getElementById("d6").innerHTML ="Files are not equal at line 2 and At Column "+c; 
+
+break;
+}
+}
+}
+
+
+if (f==0 && f1==0 && f2==0 && f3==0)
+{
+c=0;
+for(i=0;((i<str13.length)||(i<str23.length));i++)
+{
+c++;
+if (str13.charAt(i)!=str23.charAt(i))
+{
+
+f2=1;
+document.getElementById("d6").innerHTML ="Files are not equal at line 3 and At Column "+c; 
+break;
+}
+}
+}
+
+
+
+if (f==0 && f1==0 && f2==0 && f3==0)
+{
+c=0;
+for(i=0;((i<str14.length)||(i<str24.length));i++)
+{
+c++;
+if (str14.charAt(i)!=str24.charAt(i))
+{
+
+f3=1;
+document.getElementById("d6").innerHTML ="Files are not equal at line 4 and At Column "+c; 
+break;
+}
+}
+}
+
+
+
+
+if (f==0 && f1==0 && f2==0 && f3==0)
+{
+if ((str11.length==str21.length) && (str12.length==str22.length) && (str13.length==str23.length) && (str14.length==str24.length)){
+document.getElementById("d6").innerHTML ="Files are equal";}
+else
+{
+document.getElementById("d6").innerHTML ="Files are not  equal";
+}
+}
+
+document.getElementById("11").style.color="white";
+document.getElementById("1111").style.color="black";
+document.getElementById("1").style.color="yellow";
+document.getElementById("111").style.color="white";
+
+}  
+
+ 
+function re()
+{
+location.reload();
+}
+
+
+
+function etu()
+{
+document.getElementById("1").style.color="white";
+
+document.getElementById("1111").style.color="white";
+document.getElementById("111").style.color="white";
+document.getElementById("11").style.color="black";
+}
+
+function etu1()
+{
+document.getElementById("111").style.color="black";
+document.getElementById("1").style.color="white";
+document.getElementById("1111").style.color="white";
+document.getElementById("11").style.color="white";
+
+}
+
+
+
+</script>
+
+</head>
+
+<body>
+
+<div style="box-sizing:border-box;border:2px solid black;display:inline-block;width:100%;">
+
+<div class="column" style="color:white;font-weight:bold;border-right:2px solid black;width:50%;margin-top:0px;">
+<h1 style="background-color:yellow;text-align:center;color:black;margin-top:2px;">CODE</h1>
+
+<ul type="1">
+<li>#include &lt;stdio.h&gt;</li>
+<li>#include &lt;stdlib.h&gt;</li>
+<li>int main()</li>   
+<li>{</li>
+<li>    /* File pointer to hold reference of input file */</li>
+<li>    FILE * fPtr1; </li>
+<li>    FILE * fPtr2;</li>
+<li>    int col=0,line=0;</li>
+<li>    char ch1,ch2,c,c1;</li>
+
+<li>    fPtr1 = fopen("a.txt", "w");</li>
+<li>    fPtr2 = fopen("b.txt", "w");</li>
+
+<div id="11">
+<li>//writing operation</li>
+       <li> while ((c = getchar()) != EOF) {</li>
+           <li> putc(c, fPtr1);}</li></div>
+
+<div id="111">
+<li>//writing operation</li>
+       <li> while ((c1 = getchar()) != EOF) {</li>
+       <li>   putc(c1, fPtr2);}</li></div>
+
+<li>    fclose(fPtr1);</li>
+<li>    fclose(fPtr2);</li>
+
+
+<li>    /*  Open all files to compare */</li>
+<li>    fPtr1 = fopen("a.txt", "r");</li>
+<li>    fPtr2 = fopen("b.txt", "r");</li>
+<div id="1111">
+<li>    do{</li>
+<li>        // Input character from both files</li>
+<li>        ch1 = fgetc(fPtr1);</li>
+<li>        ch2 = fgetc(fPtr2);</li>
+<li>// Increment line </li>
+  <li>      if (ch1 == '\n'){</li>
+   <li>         line += 1;col = 0;}</li>
+
+<li>        if (ch1 != ch2)</li>
+<li>            printf("Files are not equal at line number %d  and Column number %d",line,col);</li>
+<li>        col  += 1;</li>      
+<li>    } while (ch1 != EOF && ch2 != EOF);</li></div>
+
+<div id="1">
+<li>    /* If both files have reached end */</li>
+<li>    if (ch1 == EOF && ch2 == EOF)</li>
+<li>       printf("Files are equal"); </li>
+<li>    else</li>
+<li>       printf("Files are not equal"); </li></div>
+<li>    /* Finally close files to release resources */</li>
+<li>    fclose(fPtr1);</li>
+<li>    fclose(fPtr2);</li>
+<li>    return 0;}</li>
+</ul>
+
+</div>
+
+<div class="column" style="float:right;margin-top:0px;width:49%;font-size:100%;overflow:hidden;font-weight:bold;">
+<h1 style="text-align:center;background-color:yellow;margin-top:2px;"> INPUT SCREEN </h1>
+
+ 
+<div onclick="etu()">
+<h2 style="margin-top:0px;margin-bottom:0px;">Enter content of First file:</h2><textarea id="my1" rows="1" cols="40%" placeholder="ENTER FIRST LINE..."></textarea>
+<textarea id="my2" rows="1" cols="40%" placeholder="ENTER SECOND LINE..."></textarea>
+<textarea id="my3" rows="1" cols="40%" placeholder="ENTER THIRD LINE..."></textarea>
+<textarea id="my4" rows="1" cols="40%" placeholder="ENTER FOURTH LINE..."></textarea></div>
+
+<div onclick="etu1()">
+<h2 style="margin-bottom:0px;margin-top:5px;">Enter content of Second file:</h2> <textarea id="m1" rows="1"  cols="40%" placeholder="ENTER FIRST LINE..."></textarea>
+<textarea id="m2" rows="1"  cols="40%" placeholder="ENTER SECOND LINE..."></textarea>
+<textarea id="m3" rows="1"  cols="40%" placeholder="ENTER THIRD LINE..."></textarea>
+<textarea id="m4" rows="1"  cols="40%" placeholder="ENTER FOURTH LINE..."></textarea>
+</div>
+
+
+
+ <h1 style="text-align:center;background-color:yellow;margin-top:5px;"> OUTPUT SCREEN </h1>
+ <h2 id="d1" style="background-color:red;margin:5px 0px;"> </h2>
+ <h3 id ="d2" style="background-color:red;margin:5px 0px;"></h3>
+ 
+ 
+ <h2 id="d3" style="background-color:yellow;margin:5px 0px;"> </h2>
+ <h3 id ="d4" style="background-color:yellow;margin:5px 0px;"></h3>
+
+ <h2 id="d5" style="background-color:white;margin:5px 0px;"> </h2>
+ <h2 id ="d6" style="background-color:white;margin:5px 0px;"></h2>
+ 
+ <button onclick="myFunction()">RUN </button>
+
+<button onclick="re()">RESET</button>
+
+
+</div>
+</body>
+</html>
